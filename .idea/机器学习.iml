@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="智能体平台" />
     <orderEntry type="module" module-name="LangChain" />
+    <orderEntry type="module" module-name="数据结构与算法" />
   </component>
 </module>

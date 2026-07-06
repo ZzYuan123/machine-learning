@@ -24,14 +24,16 @@ eg:
 '''
 
 # 一个词在当前文章中出现的次数越多 TF越大
-# 一个词在所有的我文章中出现的越少 IDF越大        
+# 一个词在所有的我文章中出现的越少 IDF越大
 import jieba
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+
 
 # 使用jieba自动分词
 def cut_word(text):
     # 将传入的文本按照jieba自动分词 然后按照空格连接起来
     return " ".join(jieba.cut(text))
+
 
 def count_vectorizer_demo2():
     datas = ["一种还是一种今天很残酷，明天更残酷，后天很美好，但绝对大部分是死在明天晚上，所以每个人不要放弃今天。",
@@ -45,6 +47,7 @@ def count_vectorizer_demo2():
     datas_final = transfer.fit_transform(datas_new)
     print(f"datas_new: {datas_final.toarray()}")
     print(f"特征名字:{transfer.get_feature_names_out()}")
+
 
 if __name__ == '__main__':
     count_vectorizer_demo2()
