@@ -12,9 +12,11 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 # 模型（核心参数都在这里）
 model = XGBRegressor(
-    n_estimators=100,     # 100棵树（一步一步修正）
-    learning_rate=0.1,    # 每次只修一点点
-    max_depth=3,          # 每棵树最多3层
+    n_estimators=100,     # 100棵树（一步一步修正）            更多树 模型更强 但是可能会过拟合
+    learning_rate=0.1,    # 每次只修一点点                    修正更慢 更稳定
+    max_depth=3,          # 每棵树最多3层                     树更复杂 更容易过拟合
+    gamma=5,              # 分裂门槛                         越大越不容易分裂
+    reg_lambda=10,        # L2正则化（lambda）                叶子权重越大越不容易继续分裂
     subsample=0.8,        # 每棵树看80%数据（防过拟合）
     colsample_bytree=0.8, # 每棵树看80%特征
     random_state=42
